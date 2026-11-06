@@ -1,0 +1,208 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  body {
+    background-color: #06080F;
+    color: #F8FAFC;
+    overflow-x: hidden;
+  }
+
+  /* Custom Modern Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #06080F;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1E293B;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+  }
+}
+
+/* Glassmorphism subtle effects */
+.glass-panel {
+  background: rgba(15, 21, 35, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(22, 29, 46, 0.75);
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.6), 0 0 25px -5px rgba(59, 130, 246, 0.2);
+}
+
+/* Gradient Text Utilities */
+.gradient-text-blue-violet {
+  background: linear-gradient(135deg, #60A5FA 0%, #A78BFA 50%, #38BDF8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-cyan-blue {
+  background: linear-gradient(135deg, #38BDF8 0%, #818CF8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Interactive Grid Background */
+.bg-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Subtle glow orb */
+.glow-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(100px);
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+/* =========================================================
+   PERFECT RESUME PRINT & PDF STYLES
+   Ensures crystal-clear, undisturbed formatting when saving as PDF
+   ========================================================= */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 14mm;
+  }
+
+  html, body {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    overflow: visible !important;
+    height: auto !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Hide all website elements except the resume */
+  header,
+  footer,
+  main,
+  #home,
+  #about,
+  #skills,
+  #experience,
+  #projects,
+  #education,
+  #certifications,
+  #contact,
+  .print-hidden,
+  .floating-controls,
+  .backdrop-overlay,
+  .glow-orb {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Expand modal to full printable document */
+  .resume-modal-wrapper {
+    position: static !important;
+    inset: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    overflow: visible !important;
+    height: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-shadow: none !important;
+  }
+
+  .resume-card-container {
+    position: static !important;
+    max-height: none !important;
+    height: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .resume-body-content {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    padding: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+
+  /* High contrast readable print colors */
+  .resume-body-content h1,
+  .resume-body-content h2,
+  .resume-body-content h3,
+  .resume-body-content h4,
+  .resume-body-content p,
+  .resume-body-content span,
+  .resume-body-content li,
+  .resume-body-content a {
+    color: #0f172a !important;
+  }
+
+  .resume-body-content a {
+    text-decoration: underline !important;
+    color: #1d4ed8 !important;
+  }
+
+  .resume-section-header {
+    border-bottom: 1.5px solid #0f172a !important;
+    color: #0f172a !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    padding-bottom: 2px !important;
+    margin-top: 14px !important;
+    margin-bottom: 8px !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  .resume-item-card {
+    border: 1px solid #e2e8f0 !important;
+    background: #f8fafc !important;
+    padding: 10px 14px !important;
+    margin-bottom: 8px !important;
+    border-radius: 6px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .resume-tag {
+    border: 1px solid #cbd5e1 !important;
+    background: #f1f5f9 !important;
+    color: #334155 !important;
+  }
+
+  .print-avoid-break {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+}
